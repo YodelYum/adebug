@@ -1,0 +1,96 @@
+html {
+  height: 100%;
+}
+body, #body, .container-fluid, .row {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+#debug_section_right {
+     /* background: #282C34 !important; */
+     background:#3A3F4B;
+     height: 100%;
+     padding:16px !important;
+     overflow-y:scroll
+
+}
+#debug_section_right p{
+     color:#D7DAC8;
+     font-size:16px;
+}
+#debug_section_right p i{
+     color:#aaa;
+     text-decoration: underline;
+
+}
+#debug_section_left{
+     background: #21252B !important;
+     height:100%;
+     max-width:300px;
+
+}
+.debug_messages_item{
+     padding-bottom:16px;
+}
+.no_padding{
+     padding:0 !important;
+}
+
+.sect {
+}
+
+.list_item{
+     width:100%;
+     border-bottom:1px solid #181A1F;
+     padding:8px;
+     color:#D7DAC8;
+     border-right:1px solid #181A1F;
+}
+
+.list_item p{
+     padding:0;
+     margin:0;
+}
+
+
+.list_item:last-child{
+     border:none;
+}
+.sectionSelected{
+     /* background:#4D78CC !important; */
+     background:#3A3F4B;
+     border: none;
+}
+
+.copy_to_clipboard{
+     position:absolute;
+     right:0;
+     top:0;
+     color:grey;
+     background:#FFA64C;
+     padding:0 5px;
+     border-radius:0px 5px 0px 5px;
+}
+.copy_color{
+     color: #FFA64C !important;
+}
+.copy_color:hover{
+     color: #FFA64C !important;
+     cursor: pointer;
+}
+.copy_to_clipboard:hover{
+     cursor: pointer;
+     color:black;
+}
+
+
+pre{
+     margin-bottom:5px;
+     border-radius:5px;
+     padding:8px;
+     background:#282C34;
+     color:#ABB2BF;
+     font-family: 'Inconsolata', monospace;
+     position: relative;
+}

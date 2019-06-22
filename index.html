@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="master.css">
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/3/cyborg/bootstrap.min.css" /> -->
+
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+   <!-- <link rel="stylesheet" href="highlighter-dark.css"> -->
+<link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+
+   <link rel="stylesheet" href="prism.css">
+
+
+
+  </head>
+  <body>
+    <div class="" id="body" ng-controller="ctrler">
+      <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 sect no_padding" id="debug_section_left">
+      <ul class="list-group">
+                        <li class="list_item sectionSelected" element_id="123" ng-click="selectDebugSection(123)">
+TEST
+
+                        </li>
+
+                        <li class="list_item sectionSelected" element_id="456" ng-click="selectDebugSection(456)">
+                             TEST
+
+                        </li>
+
+                        <li class="list_item sectionSelected" element_id="789" ng-click="selectDebugSection(789)">
+                             TEST
+
+                        </li>
+                      </ul>
+    </div>
+    <div class="col-sm-9" id="debug_section_right">
+      <div id="app">
+
+</div>
+<div class="debug_messages_item" style="margin-top :8px;" ng-repeat="(key, value) in allDebugMessages">
+     <p style="color:white;">File: <i class="copy_color" ng-click="copyToClipboard(value.file)">{{value.file}}</i>@<i>{{value.line}}</i>
+     Method: <i class="copy_color" ng-click="copyToClipboard(value.method.split('@')[0])">{{value.method}}</i> Kommentar: <i>{{value.comment}}</i>
+     Type: <i>{{value.type}}</i> Time: <i>{{value.time}}</i></p>
+     <pre><span class="copy_to_clipboard" ng-click="copyToClipboard(value.formattedMessage)">Copy to Clipboard</span><code>{{value.formattedMessage}}</code></pre>
+     <p ng-click="hide = !hide" style="text-decoration: underline;">Stacktrace</p>
+     <p ng-show="hide">TRACE</p>
+
+</div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+
+
+
+
+    <script>
+    var app = angular.module('app', []);
+    app.controller('ctrler', function($scope, $window) {
+
+      $scope.selectDebugSection = function(elementID){
+           console.log(elementID);
+           $('.list_item').removeClass('sectionSelected');
+           $('[element_id='+elementID+']').addClass('sectionSelected');
+      }
+
+      $scope.blub = $window.blub;
+      $scope.allDebugMessages = $window.allDebugMessages;
+      $scope.copyToClipboard = function(msg){
+           clipboard.writeText(msg)
+      }
+
+    });
+    </script>
+
+
+  <script src="prism.js"></script>
+
+
+
+  </body>
+</html>
