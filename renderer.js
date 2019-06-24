@@ -2,8 +2,8 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 var app = require('electron').remote;
-const { clipboard } = require('electron')
-clipboard.writeText('Example String')
+const {app2,  autoUpdater, clipboard } = require('electron');
+clipboard.writeText('Example String');
 
 var dialog = app.dialog;
 var fs = require('fs');
@@ -17,11 +17,15 @@ var HOST = '127.0.0.1';
 var dgram = require('dgram');
 var server = dgram.createSocket('udp4');
 
+
+
+
 server.on('listening', function() {
   var address = server.address();
  console.log('UDP Server listening on ' + address.address + ':' + address.port);
 });
 
+//when message is being received
 server.on('message', function(message, remote) {
  console.log(remote.address + ':' + remote.port +' - ' + message);
 
@@ -31,8 +35,8 @@ catch(e) { alert('Failed to save the file !'); }
      var scope = angular.element($("#app")).scope();
      scope.$apply(function(){
           var rawJson = JSON.parse(message);
- console.log(rawJson);
-          for(var i = 0; i < rawJson.length; i++){
+          console.log(rawJson);
+          /*for(var i = 0; i < rawJson.length; i++){
                switch (rawJson[i].type) {
                    case 'array':
                          rawJson[i].formattedMessage = JSON.stringify(rawJson[i].message, undefined, 4);
@@ -44,9 +48,22 @@ catch(e) { alert('Failed to save the file !'); }
                         rawJson[i].formattedMessage = rawJson[i].message;
                         break;
 
+              }*/
+
+          switch (rawJson.type) {
+                   case 'array':
+                         rawJson.formattedMessage = JSON.stringify(rawJson.message, undefined, 4);
+                         break;
+                    case 'string':
+                          rawJson.formattedMessage = rawJson.message;
+                          break;
+                   default:
+                        rawJson.formattedMessage = rawJson.message;
+                        break;
+
+          
               }
-              }
-              scope.allDebugMessages = rawJson;
+              scope.allDebugMessages.push(rawJson);
               console.log(allDebugMessages);
               document.querySelectorAll('pre code').forEach((block) => {
              });

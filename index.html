@@ -22,30 +22,29 @@
   <body>
     <div class="" id="body" ng-controller="ctrler">
       <div class="container-fluid">
-  <div class="row">
+           <div class="row" style="height:30px;">
+                <div class="col-sm-12" id="header">
+                     <p>ADEBUG</p>
+                     <p>ADEBUG</p>
+                     <p>ADEBUG</p>
+                     <p>ADEBUG</p>
+                </div>
+           </div>
+  <div class="row" style="height:100%;">
     <div class="col-sm-3 sect no_padding" id="debug_section_left">
       <ul class="list-group">
-                        <li class="list_item sectionSelected" element_id="123" ng-click="selectDebugSection(123)">
-TEST
-
+                        <li class="list_item sectionSelected">
+                             <button ng-click="clearAllErrorMessages()" type="button" name="button" style="border-radius:5px;">CLEAR</button>
                         </li>
 
-                        <li class="list_item sectionSelected" element_id="456" ng-click="selectDebugSection(456)">
-                             TEST
 
-                        </li>
-
-                        <li class="list_item sectionSelected" element_id="789" ng-click="selectDebugSection(789)">
-                             TEST
-
-                        </li>
                       </ul>
     </div>
     <div class="col-sm-9" id="debug_section_right">
       <div id="app">
 
 </div>
-<div class="debug_messages_item" style="margin-top :8px;" ng-repeat="(key, value) in allDebugMessages">
+<div class="debug_messages_item" style="margin-top :8px;" ng-repeat="(key, value) in allDebugMessages.slice().reverse()">
      <p style="color:white;">File: <i class="copy_color" ng-click="copyToClipboard(value.file)">{{value.file}}</i>@<i>{{value.line}}</i>
      Method: <i class="copy_color" ng-click="copyToClipboard(value.method.split('@')[0])">{{value.method}}</i> Kommentar: <i>{{value.comment}}</i>
      Type: <i>{{value.type}}</i> Time: <i>{{value.time}}</i></p>
@@ -82,6 +81,10 @@ TEST
       $scope.allDebugMessages = $window.allDebugMessages;
       $scope.copyToClipboard = function(msg){
            clipboard.writeText(msg)
+      }
+
+      $scope.clearAllErrorMessages = function(){
+           $scope.allDebugMessages = [];
       }
 
     });

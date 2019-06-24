@@ -1,6 +1,10 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const isDev = require('electron-is-dev');
+
+
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -50,9 +54,15 @@ app.on('activate', function () {
   if (mainWindow === null) createWindow()
 })
 
-var $ = require('jquery');
-const jetpack = require('fs-jetpack');
-var fs = require('fs');
+
+
+
+if (isDev) {
+	console.log('Running in development');
+} else {
+	console.log('Running in production');
+}
+
 
 
 
