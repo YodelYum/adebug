@@ -25,9 +25,9 @@
            <div class="row" style="height:30px;">
                 <div class="col-sm-12" id="header">
                      <p>ADEBUG</p>
-                     <p>ADEBUG</p>
-                     <p>ADEBUG</p>
-                     <p>ADEBUG</p>
+                     <p>STPDEBUG</p>
+                     <p>LOG</p>
+                     <p>???</p>
                 </div>
            </div>
   <div class="row" style="height:100%;">
@@ -50,7 +50,8 @@
      Type: <i>{{value.type}}</i> Time: <i>{{value.time}}</i></p>
      <pre><span class="copy_to_clipboard" ng-click="copyToClipboard(value.formattedMessage)">Copy to Clipboard</span><code>{{value.formattedMessage}}</code></pre>
      <p ng-click="hide = !hide" style="text-decoration: underline;">Stacktrace</p>
-     <p ng-show="hide">TRACE</p>
+     <p ng-show="hide"><span ng-repeat="v in value.stacktrace">{{v}} => </span></p>
+
 
 </div>
 

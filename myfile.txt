@@ -1,1 +1,1 @@
-{"package_id":"ece121aa5b9ec8a9398e9da17db493feded63240","time":1561393360,"line":99,"file":"C:\\Users\\agatt\\Documents\\php udp\\index.php","method":"a@103","message":"blub","formattedMessage":"string","comment":"COMMENT","type":"string","stacktrace":["a"]}
+{"package_id":"f7bbe6b110a1aad2753c042a1527e78cb4f31985","time":1561399514,"line":99,"file":"C:\\Users\\agatt\\Documents\\php udp\\index.php","method":"a@102","message":"blub","formattedMessage":"string","comment":"COMMENT","type":"string","stacktrace":["a","b","c"]}

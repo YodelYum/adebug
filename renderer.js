@@ -49,7 +49,6 @@ catch(e) { alert('Failed to save the file !'); }
                         break;
 
               }*/
-
           switch (rawJson.type) {
                    case 'array':
                          rawJson.formattedMessage = JSON.stringify(rawJson.message, undefined, 4);
@@ -61,7 +60,7 @@ catch(e) { alert('Failed to save the file !'); }
                         rawJson.formattedMessage = rawJson.message;
                         break;
 
-          
+
               }
               scope.allDebugMessages.push(rawJson);
               console.log(allDebugMessages);
