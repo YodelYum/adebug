@@ -52,7 +52,6 @@ body, #body, .container-fluid {
      margin: 0;
      line-height:27px;
      text-align: center;
-     border-radius: 0 0 5px 5px;
 }
 #header p:hover{
      background:#FFA64C;
